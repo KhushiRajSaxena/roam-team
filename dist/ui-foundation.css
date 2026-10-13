@@ -1,0 +1,78 @@
+/* UI foundation adapted from the supplied computed styles.
+   Google faces use locally available fonts, with Noto Sans / Arial fallbacks. */
+:root {
+  --ui-font: "Google Sans Flex", "Google Sans", "Noto Sans", Arial, sans-serif;
+  --ink: rgb(25, 28, 29);
+  font-family: var(--ui-font);
+  font-size: 16px;
+  background: #f8fafb;
+  color: var(--ink);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  display: block;
+  background: rgba(0, 0, 0, 0);
+  color: var(--ink);
+  font: 400 16px/1.6 var(--ui-font);
+  text-align: left;
+  text-wrap: pretty;
+  unicode-bidi: isolate;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+/* Unify the old display/serif overrides without changing functional layouts. */
+body :is(p, a, span, strong, small, b, em, li, div, section, h1, h2, h3,
+  button, input, select, label, legend, summary, time, footer) {
+  font-family: var(--ui-font);
+}
+body :is(h1, h2, h3) { color: var(--ink); font-weight: 700; text-wrap: balance; }
+body .brand { font-size: clamp(32px, 3.8vw, 48px); font-weight: 750; letter-spacing: -1.8px; }
+body .brand>span:last-child { font-weight: 450; }
+body .page-heading h1 { font-size: clamp(34px, 4vw, 54px); letter-spacing: -1.6px; line-height: 1.12; }
+body :is(.section-title h2, .offer-showcase-heading h2) { font-size: 22px; letter-spacing: -.5px; }
+body .page-heading { min-height: 100px; height: auto; }
+body .page-heading>div { width: 100%; max-width: 915px; min-width: 0; }
+body :is(.page-heading p:last-child, .login-panel>p, .header-caption,
+  .full-width-plan .offer-scroll p, .schedule-item p,
+  .empty-state>p:not(.eyebrow), .result-top p) {
+  font-size: 16px; line-height: 1.65; font-weight: 400;
+}
+body .full-width-plan .notes { font-size: 16px; line-height: 1.75; }
+body :is(label, legend) { font-size: 13px; font-weight: 600; }
+body :is(input, select, .location-trigger) { font-size: 14px; }
+body .form-note { font-size: 12px; line-height: 1.6; }
+body .full-width-plan .offer-scroll h3 { font-size: clamp(20px, 1.7vw, 26px); font-weight: 650; line-height: 1.35; }
+body .schedule-item strong { font-size: 16px; font-weight: 600; }
+body .day-title h3 { font-size: 16px; font-weight: 650; }
+body .reveal-message h2 { color: #fff; font-size: clamp(36px, 5vw, 68px); letter-spacing: -1.8px; line-height: 1.12; }
+body .reveal-message>p:not(.eyebrow) { font-size: 18px; line-height: 1.6; }
+body .result-top h2 { color: #fff; font-size: clamp(30px, 3.8vw, 46px); letter-spacing: -1px; font-weight: 700; }
+body .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; }
+body .offer-scroll .offer-price { font-weight: 700; font-variant-numeric: tabular-nums; }
+@media(max-width:720px) {
+  body .brand { font-size: 32px; letter-spacing: -1px; }
+  body .page-heading { gap: 14px; }
+  body .page-heading h1 { font-size: 34px; }
+  body .page-heading p:last-child { max-width: none; }
+  body .stamp { flex-shrink: 0; }
+  body .reveal-message h2 { font-size: 38px; }
+  body .reveal-message>p:not(.eyebrow) { font-size: 16px; }
+}
+
+/* Let each offer end after its options instead of stretching to its neighbour. */
+body .full-width-plan .offer-dock { align-items: flex-start; padding-bottom: 14px; }
+body .offer-dock-item { align-items: flex-start; }
+body .offer-showcase .perspective-offer {
+  aspect-ratio: auto;
+  height: auto;
+  min-height: 0;
+  padding-bottom: 18px;
+}
+body .offer-scroll { flex: 0 1 auto; }
+body .offer-scroll .alternatives { margin-top: 12px; }
+body .offer-scroll .alternatives summary { padding-block: 10px; }
+body .full-width-plan .offer-scroll .alternatives p { margin-block: 8px; }
+body .offer-scroll > :last-child,
+body .full-width-plan .offer-scroll .alternatives p:last-child { margin-bottom: 0; }

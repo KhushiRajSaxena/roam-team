@@ -1,0 +1,249 @@
+{
+  "generated_at": "2026-09-13T14:32:26.431095+00:00",
+  "mode": "demo",
+  "data": "Synthetic fixtures; not live travel prices.",
+  "baseline_type": "Rule-based ablation with identical initial allocations, without revisions; not an AI baseline",
+  "limitations": "Small illustrative scenario set, one run per case. No statistically significant quality claim. Schedule score checks block overlap only, not real opening hours or travel times.",
+  "scenarios": [
+    {
+      "scenario": "goa-comfort",
+      "expected_affordable": true,
+      "team": {
+        "status": "within_budget",
+        "budget_compliant": true,
+        "schedule_conflicts": 0,
+        "total_paise": 3977500,
+        "revision_rounds": 0,
+        "latency_seconds": 0.01,
+        "event_count": 15,
+        "model_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "model": null,
+        "estimated_model_cost_usd": 0
+      },
+      "baseline": {
+        "status": "within_budget",
+        "budget_compliant": true,
+        "schedule_conflicts": 0,
+        "total_paise": 3977500,
+        "revision_rounds": 0,
+        "latency_seconds": 0.001,
+        "model_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "estimated_model_cost_usd": 0
+      }
+    },
+    {
+      "scenario": "goa-tight",
+      "expected_affordable": true,
+      "team": {
+        "status": "within_budget",
+        "budget_compliant": true,
+        "schedule_conflicts": 0,
+        "total_paise": 2428000,
+        "revision_rounds": 1,
+        "latency_seconds": 0.005,
+        "event_count": 19,
+        "model_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "model": null,
+        "estimated_model_cost_usd": 0
+      },
+      "baseline": {
+        "status": "over_budget",
+        "budget_compliant": false,
+        "schedule_conflicts": 0,
+        "total_paise": 2578000,
+        "revision_rounds": 0,
+        "latency_seconds": 0.001,
+        "model_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "estimated_model_cost_usd": 0
+      }
+    },
+    {
+      "scenario": "unaffordable",
+      "expected_affordable": false,
+      "team": {
+        "status": "over_budget",
+        "budget_compliant": false,
+        "schedule_conflicts": 0,
+        "total_paise": 2188000,
+        "revision_rounds": 0,
+        "latency_seconds": 0.004,
+        "event_count": 15,
+        "model_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "model": null,
+        "estimated_model_cost_usd": 0
+      },
+      "baseline": {
+        "status": "over_budget",
+        "budget_compliant": false,
+        "schedule_conflicts": 0,
+        "total_paise": 2188000,
+        "revision_rounds": 0,
+        "latency_seconds": 0.0,
+        "model_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "estimated_model_cost_usd": 0
+      }
+    },
+    {
+      "scenario": "jaipur-pair",
+      "expected_affordable": true,
+      "team": {
+        "status": "within_budget",
+        "budget_compliant": true,
+        "schedule_conflicts": 0,
+        "total_paise": 5215099,
+        "revision_rounds": 0,
+        "latency_seconds": 0.004,
+        "event_count": 15,
+        "model_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "model": null,
+        "estimated_model_cost_usd": 0
+      },
+      "baseline": {
+        "status": "within_budget",
+        "budget_compliant": true,
+        "schedule_conflicts": 0,
+        "total_paise": 5215099,
+        "revision_rounds": 0,
+        "latency_seconds": 0.001,
+        "model_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "estimated_model_cost_usd": 0
+      }
+    },
+    {
+      "scenario": "bali-week",
+      "expected_affordable": true,
+      "team": {
+        "status": "within_budget",
+        "budget_compliant": true,
+        "schedule_conflicts": 0,
+        "total_paise": 15795199,
+        "revision_rounds": 0,
+        "latency_seconds": 0.004,
+        "event_count": 15,
+        "model_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "model": null,
+        "estimated_model_cost_usd": 0
+      },
+      "baseline": {
+        "status": "within_budget",
+        "budget_compliant": true,
+        "schedule_conflicts": 0,
+        "total_paise": 15795199,
+        "revision_rounds": 0,
+        "latency_seconds": 0.001,
+        "model_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "estimated_model_cost_usd": 0
+      }
+    },
+    {
+      "scenario": "paris-short",
+      "expected_affordable": true,
+      "team": {
+        "status": "within_budget",
+        "budget_compliant": true,
+        "schedule_conflicts": 0,
+        "total_paise": 15222499,
+        "revision_rounds": 0,
+        "latency_seconds": 0.004,
+        "event_count": 15,
+        "model_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "model": null,
+        "estimated_model_cost_usd": 0
+      },
+      "baseline": {
+        "status": "within_budget",
+        "budget_compliant": true,
+        "schedule_conflicts": 0,
+        "total_paise": 15222499,
+        "revision_rounds": 0,
+        "latency_seconds": 0.0,
+        "model_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "estimated_model_cost_usd": 0
+      }
+    },
+    {
+      "scenario": "tokyo-group",
+      "expected_affordable": true,
+      "team": {
+        "status": "within_budget",
+        "budget_compliant": true,
+        "schedule_conflicts": 0,
+        "total_paise": 39400000,
+        "revision_rounds": 1,
+        "latency_seconds": 0.005,
+        "event_count": 22,
+        "model_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "model": null,
+        "estimated_model_cost_usd": 0
+      },
+      "baseline": {
+        "status": "over_budget",
+        "budget_compliant": false,
+        "schedule_conflicts": 0,
+        "total_paise": 51266800,
+        "revision_rounds": 0,
+        "latency_seconds": 0.001,
+        "model_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "estimated_model_cost_usd": 0
+      }
+    },
+    {
+      "scenario": "one-night",
+      "expected_affordable": true,
+      "team": {
+        "status": "within_budget",
+        "budget_compliant": true,
+        "schedule_conflicts": 0,
+        "total_paise": 1802000,
+        "revision_rounds": 0,
+        "latency_seconds": 0.004,
+        "event_count": 15,
+        "model_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "model": null,
+        "estimated_model_cost_usd": 0
+      },
+      "baseline": {
+        "status": "within_budget",
+        "budget_compliant": true,
+        "schedule_conflicts": 0,
+        "total_paise": 1802000,
+        "revision_rounds": 0,
+        "latency_seconds": 0.0,
+        "model_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "estimated_model_cost_usd": 0
+      }
+    }
+  ]
+}

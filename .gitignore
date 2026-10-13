@@ -1,0 +1,13 @@
+.venv/
+.env
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
+work/
+.sites-runtime/
+.local/
+.env.*
+!.env.example
+
+node_modules/

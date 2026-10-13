@@ -1,0 +1,1 @@
+{"version":"0.2.0","configurations":[{"name":"Run Roam Team","type":"debugpy","request":"launch","module":"uvicorn","args":["app.main:app","--host","127.0.0.1","--port","8003","--reload","--no-proxy-headers","--limit-concurrency","64","--timeout-keep-alive","5"],"jinja":false,"justMyCode":true}]}

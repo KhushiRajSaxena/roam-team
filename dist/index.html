@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Roam Team · Your trip, together</title><meta name="description" content="A travel planning workspace with a coordinated team for flights, stays and activities."><link rel="icon" href="/favicon.svg"><link rel="stylesheet" href="/skiper-ui.css"><link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/ui-foundation.css"></head>
+<body>
+<header><a class="brand" href="/" aria-label="Roam Team home"><span class="brand-icon">↗</span>Roam<span>Team</span></a><span class="header-caption">A little less planning. A lot more going.</span><span class="badge" id="mode-badge">Sample data</span></header>
+<section id="account-controls" class="account-controls" hidden><span>Signed in as <strong id="account-name"></strong></span><button class="secondary" id="logout">Sign out</button><button class="secondary" id="logout-all">Sign out everywhere</button><span id="account-message" role="status"></span></section>
+<section id="sign-in" class="panel login-panel"><img class="login-travel-image" src="/images/beach.jpg" alt="A peaceful beach at sunset" width="720" height="480"><p class="eyebrow">WELCOME TO ROAM TEAM</p><h1>Your next trip starts here.</h1><p>Sign in to plan your trip and protect your API allowance.</p><form id="login-form"><label>Username<input id="username" autocomplete="username" required maxlength="64" value="owner"></label><label>Password<input id="password" type="password" autocomplete="current-password" required maxlength="128"></label><button class="primary" id="login-button">Sign in</button><p id="login-error" role="alert"></p></form><details><summary>First time on this computer?</summary><p>Your local account details are in <code>.local/owner-login.txt</code> in the project folder. The app owner can create additional accounts from the terminal.</p></details></section>
+<main hidden>
+  <div class="page-heading"><div><p class="eyebrow">YOUR NEXT CHAPTER</p><h1>Where are we going?</h1><p>One trip. Three specialists. Everything in one place.</p></div><span class="stamp" aria-hidden="true">LET’S<br>GET LOST ↗</span></div>
+  <div id="travel-inspiration"><section class="travel-fallback"><img src="/images/mountain.jpg" alt="Mountain valley travel inspiration" width="720" height="480"><div><h2>Go somewhere you’ll remember.</h2><a href="#trip-form">Plan your escape ↗</a></div></section></div>
+  <div class="workspace">
+    <aside class="panel trip-panel"><div class="section-title"><h2>The starting point</h2><span>01</span></div>
+      <form id="trip-form">
+        <div class="setup-group setup-route">
+        <div class="location-picker" data-picker="origin">
+          <label id="origin-label">Flying from</label>
+          <input type="hidden" name="origin" id="origin" value="DEL">
+          <button type="button" class="location-trigger" id="origin-trigger" aria-labelledby="origin-label origin-selected" aria-expanded="false" aria-controls="origin-menu" disabled><span id="origin-selected">Loading cities…</span><span aria-hidden="true">⌄</span></button>
+          <div class="location-menu" id="origin-menu" hidden>
+            <input type="search" id="origin-search" class="location-search" placeholder="Search city, country or code…" autocomplete="off" role="combobox" aria-label="Search flying from" aria-expanded="false" aria-controls="origin-options" aria-autocomplete="list">
+            <p class="location-count" id="origin-count" role="status"></p>
+            <div class="location-options" id="origin-options" role="listbox" aria-label="Flying from airports"></div>
+          </div>
+        </div>
+        <div class="location-picker" data-picker="destination">
+          <label id="destination-label">Destination</label>
+          <input type="hidden" name="destination" id="destination" value="GOI">
+          <button type="button" class="location-trigger" id="destination-trigger" aria-labelledby="destination-label destination-selected" aria-expanded="false" aria-controls="destination-menu" disabled><span id="destination-selected">Loading cities…</span><span aria-hidden="true">⌄</span></button>
+          <div class="location-menu" id="destination-menu" hidden>
+            <input type="search" id="destination-search" class="location-search" placeholder="Search city, country or code…" autocomplete="off" role="combobox" aria-label="Search destination" aria-expanded="false" aria-controls="destination-options" aria-autocomplete="list">
+            <p class="location-count" id="destination-count" role="status"></p>
+            <div class="location-options" id="destination-options" role="listbox" aria-label="Destination airports"></div>
+          </div>
+        </div>
+        <button class="swap-route" id="swap-route" type="button" aria-label="Swap departure and destination">⇄ Swap route</button>
+        <p class="form-note" id="location-note">Loading airport choices…</p>
+        </div>
+        <div class="setup-group setup-dates">
+        <div class="form-row"><label>Departure<input id="start" name="start" type="date" required></label><label>Return departure<input id="end" name="end" type="date" required></label></div>
+        <div class="form-row"><label>Total budget (INR)<input name="budget" type="number" min="1000" max="10000000" step="1" value="45000" required></label><label>Adult travelers<select name="travelers"><option value="1">1 adult</option><option value="2">2 adults</option><option value="3">3 adults</option><option value="4">4 adults</option></select></label></div>
+        <fieldset><legend>Make it your kind of trip</legend><div class="interests"><label><input type="checkbox" name="interests" value="nature" checked><span>☀ Nature</span></label><label><input type="checkbox" name="interests" value="culture" checked><span>◇ Culture</span></label><label><input type="checkbox" name="interests" value="food"><span>♧ Food</span></label><label><input type="checkbox" name="interests" value="adventure"><span>↗ Adventure</span></label></div></fieldset>
+        </div>
+        <div class="setup-group setup-mode">
+        <label>Planning mode<select name="mode" id="mode"><option value="demo">Demo · no API keys needed</option><option value="ai" disabled>Groq team · checking connection…</option><option value="live" disabled>Live search · checking connection…</option></select></label>
+        <p class="form-note" id="connection-status" role="status">Checking local API configuration…</p>
+        <button type="button" class="secondary" id="refresh-config">Recheck API connection</button>
+        
+      <div id="quota-panel" class="quota-panel" aria-live="polite"><strong>Free-plan protection</strong><p id="quota-summary">Loading local usage…</p><small>Live trips use at most 3 new SerpApi searches. Budget changes reuse cached searches.</small></div></div>
+      <div class="setup-submit"><button class="primary" id="plan-button" type="submit">Build my trip <span>↗</span></button><p class="form-note" id="mode-note">Demo runs the real coordination workflow using fictional offers and rule-based specialists. No AI calls or bookings.</p></div></form>
+    </aside>
+    <section class="results-column" aria-label="Trip planning results">
+      <section class="panel team-panel"><div class="section-title"><h2>Your planning team</h2><span id="team-status">Ready when you are</span></div><div class="team"><div class="agent coordinator" data-agent="orchestrator"><span class="agent-symbol">✳</span><strong>Orchestrator</strong><small>Connects the dots</small></div><span class="connector" aria-hidden="true">→</span><div class="agent" data-agent="flights"><span class="agent-symbol">↗</span><strong>Flights</strong><small>Finds your way</small></div><div class="agent" data-agent="stays"><span class="agent-symbol">⌂</span><strong>Stays</strong><small>Your home away</small></div><div class="agent" data-agent="activities"><span class="agent-symbol">☀</span><strong>Activities</strong><small>Makes it memorable</small></div></div><details id="trace-details"><summary>See the team conversation <span id="event-count">0 updates</span></summary><ol id="trace" aria-live="polite"></ol></details><a id="view-plan" class="view-plan-link" href="#result" hidden>View your completed plan ↓</a></section>
+      <p id="error" class="error" role="alert" hidden></p>
+      <section id="empty" class="panel empty-state"><div class="route-art" aria-hidden="true"><span>○</span><svg viewBox="0 0 280 110"><path d="M5 90 C70 -40 170 160 270 10"/></svg><span>✳</span></div><p class="eyebrow">GOOD TRIPS START HERE</p><h2>A plan that fits you.<br>And your budget.</h2><p>Add your trip details and let the team take it from here.<br>You’ll get a daily itinerary, places to stay, and a clear cost breakdown.</p><div class="empty-tags"><span>↗ Round-trip flights</span><span>⌂ Thoughtful stays</span><span>☀ Room to explore</span></div></section>
+    </section>
+  </div>
+  <div id="result" class="full-width-plan" hidden></div>
+  <footer><span>ROAM TEAM</span><p>Built around the journey.</p><span>Made for your next adventure.</span></footer>
+</main><p class="design-credit">Motion components adapted from <a href="https://skiper-ui.com" target="_blank" rel="noopener noreferrer">Skiper UI</a> · Photography from <a href="https://unsplash.com" target="_blank" rel="noopener noreferrer">Unsplash</a></p><script src="/vendor/jspdf.umd.min.js" defer></script><script src="/vendor/jspdf.plugin.autotable.min.js" defer></script><script src="/vendor/pdf-font.js" defer></script><script src="/pdf-export.js" defer></script><script src="/auth.js" defer></script><script src="/app.js" defer></script><script src="/skiper-ui.js" defer></script>
+</body></html>

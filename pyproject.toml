@@ -1,0 +1,10 @@
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+asyncio_mode = "auto"
+
+[project]
+name = "roam-team"
+version = "0.1.0"
+description = "A local multi-agent travel planning application"
+requires-python = ">=3.11"
